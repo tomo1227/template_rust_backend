@@ -1,18 +1,12 @@
 {
     "name": "rust-template",
     "dockerComposeFile": [
-        "../docker-compose.yml",
-        "docker-compose.yml"
+        "../compose.yml"
     ],
     "service": "devcontainer",
     "workspaceFolder": "/workspace",
-    "features": {
-        "ghcr.io/devcontainers/features/rust": {
-            "version": "latest"
-        }
-    },
-    "postCreateCommand": "sh .devcontainer/post_create.sh",
-    "postStartCommand": "sh .devcontainer/post_start.sh ${containerWorkspaceFolder}",
+    "postCreateCommand": "sh .devcontainer/scripts/post_create.sh",
+    "postStartCommand": "sh .devcontainer/scripts/post_start.sh ${containerWorkspaceFolder}",
     "customizations": {
         "vscode": {
             "settings": {
