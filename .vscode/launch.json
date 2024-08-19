@@ -2,16 +2,41 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "cpp_debug",
             "type": "lldb",
             "request": "launch",
-            "program": "${fileDirname}/a.out",
-            "args": [
-                ""
-            ],
-            "cwd": "${fileDirname}",
-            "preLaunchTask": "cpp_build",
-            "postDebugTask": "rm_file"
+            "name": "Debug executable 'hello'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=hello",
+                    "--package=hello"
+                ],
+                "filter": {
+                    "name": "hello",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'hello'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=hello",
+                    "--package=hello"
+                ],
+                "filter": {
+                    "name": "hello",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
         }
     ]
 }
