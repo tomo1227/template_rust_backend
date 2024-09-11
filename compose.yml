@@ -1,7 +1,7 @@
 services:
   devcontainer:
     hostname: ${DEVCONTAINTER_HOST_NAME}
-    container_name: ${DEVCONTAINTER_HOST_NAME}
+    container_name: ${DEVCONTAINTER_CONTAINER_NAME}
     image: ${DEVCONTAINTER_IMAGE_NAME}
     build:
       context: .
@@ -9,5 +9,5 @@ services:
     volumes:
       - .:/workspace:cached
     ports:
-      -${HOST_IP}:${DEVCONTAINTER_HOST_PORT}:8080
+      - ${HOST_IP}:${DEVCONTAINTER_HOST_PORT}:8080
     tty: true
