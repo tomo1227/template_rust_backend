@@ -1,18 +1,12 @@
 {
     "name": "rust-template",
     "dockerComposeFile": [
-        "../docker-compose.yml",
-        "docker-compose.yml"
+        "../compose.yml"
     ],
     "service": "devcontainer",
     "workspaceFolder": "/workspace",
-    "features": {
-        "ghcr.io/devcontainers/features/rust": {
-            "version": "latest"
-        }
-    },
-    "postCreateCommand": "sh .devcontainer/post_create.sh",
-    "postStartCommand": "sh .devcontainer/post_start.sh ${containerWorkspaceFolder}",
+    "postCreateCommand": "sh .devcontainer/scripts/post_create.sh",
+    "postStartCommand": "sh .devcontainer/scripts/post_start.sh ${containerWorkspaceFolder}",
     "customizations": {
         "vscode": {
             "settings": {
@@ -31,32 +25,22 @@
             "extensions": [
                 // Rust関連
                 "rust-lang.rust-analyzer",
-                "serayuzgur.crates",
+                "fill-labs.dependi",
                 "tamasfe.even-better-toml",
                 "swellaby.vscode-rust-test-adapter",
                 "jscearcy.rust-doc-viewer",
                 "ms-vscode.live-server",
                 "vadimcn.vscode-lldb",
-                "ms-vscode.makefile-tools",
                 // Git関連
-                "GitHub.vscode-pull-request-github",
-                "github.vscode-github-actions",
                 "mhutchie.git-graph",
                 "eamodio.gitlens",
-                "donjayamanne.githistory",
-                "seatonjiang.gitmoji-vscode",
                 // その他
-                "adpyke.vscode-sql-formatter",
                 "streetsidesoftware.code-spell-checker",
                 "naumovs.color-highlight",
                 "formulahendry.auto-rename-tag",
-                "MariusAlchimavicius.json-to-ts",
-                "dsznajder.es7-react-js-snippets",
                 "styled-components.vscode-styled-components",
                 "Gruntfuggly.todo-tree",
-                "oderwat.indent-rainbow",
-                "pkief.material-icon-theme",
-                "ms-azuretools.vscode-docker"
+                "oderwat.indent-rainbow"
             ]
         }
     }
